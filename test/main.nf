@@ -1,5 +1,7 @@
 #!/usr/bin/env nextflow
 
+import static Helpers.foo
+
 process sayHello {
   input: 
     val x
@@ -12,5 +14,5 @@ process sayHello {
 }
 
 workflow {
-  Channel.of('Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view
+  Channel.of(foo, 'Bonjour', 'Ciao', 'Hello', 'Hola') | sayHello | view
 }
